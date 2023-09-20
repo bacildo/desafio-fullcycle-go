@@ -1,3 +1,3 @@
 # desafio-fullcycle-go
 Imagem em GO usando docker.
-inserir o caminho da imagem do docker go, após conclusão
+Link da imagem no dockerhub: https://hub.docker.com/repository/docker/dbacildodasilva/fullcycle/general
