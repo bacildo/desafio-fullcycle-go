@@ -1,12 +1,11 @@
-FROM golang:1.21
-
-WORKDIR /usr/src/app
-
-COPY go.mod go.sum ./
-
-RUN go mod download && go mod verify
-
+#Builder
+FROM golang:1.21.0-alpine3.17 AS build
+WORKDIR /app
 COPY . .
-RUN go build -v -o /usr/local/bin/app ./...
+RUN go build -o main .
 
-CMD ["app"]
+# Runner
+FROM scratch
+WORKDIR /app
+COPY --from=build /app/main .
+CMD ["/app/main"]
